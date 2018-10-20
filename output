@@ -4,7 +4,7 @@
 **gradDescent** 梯度提升函数的**alpha = 0.0007**，**迭代终止阈值**为**0.000001**，
 **stocGradAscent1** 改善后的随机梯度提升函数**迭代终止阈值**为**0.00001**.
 
-结果可见，optimFun的预测效果是最好的，也是最运行效率最快的。
+结果可见，optimFun的预测效果是最好的，运行效率也是相对较快的。
 
 $time
             glm      gradAscent  stocGradAscent stocGradAscent1        optimFun 

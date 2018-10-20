@@ -1,22 +1,26 @@
 
+$time : 平均每次迭代运算所花时间
+$mse : 与glm函数系数输出值的均方误差
+$rate : 预测准确率
+
 从头开始，依次加载所有函数，最后运行 iterFun(x = X, y = y, B = 100). 可得以下结论：
 当迭代 **B**100次，
 **gradDescent** 梯度提升函数的**alpha = 0.0007**，**迭代终止阈值**为**0.000001**，
 **stocGradAscent1** 改善后的随机梯度提升函数**迭代终止阈值**为**0.00001**.
 
-结果可见，optimFun的预测效果是最好的，运行效率也是相对较快的。
+结果可见，optimFun的预测效果是最好的，比改善后的随机梯度下降算法还要稍好一些。运行效率也是能接受的。
 
 $time
             glm      gradAscent  stocGradAscent stocGradAscent1        optimFun 
-        0.00316         0.00381         0.00483         3.47683         0.01311 
+        0.00322         0.00419         0.00484         3.30139         0.01288 
 
 $mse
-     gradAscent  stocGradAscent stocGradAscent1        optimFun 
-   9.296194e-03    1.650150e-02    3.897811e-03    3.793672e-11 
+        glm_mse      gradAscent  stocGradAscent stocGradAscent1        optimFun 
+    0.000000000     0.005347463     0.035618086     0.024091739     0.019497642 
 
 $rate
             glm      gradAscent  stocGradAscent stocGradAscent1        optimFun 
-      0.4993966       0.5025607       0.5000516       0.5175319       0.5228745 
+      0.5033484       0.5042849       0.5034226       0.5202350       0.5213016 
 
 
 

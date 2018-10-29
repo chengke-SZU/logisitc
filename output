@@ -4,24 +4,32 @@ $mse : 与glm函数系数输出值的均方误差
 $rate : 预测准确率
 
 从头开始，依次加载所有函数，最后运行 iterFun(x = X, y = y, B = 100). 可得以下结论：
-当迭代 **B**100次，
-**gradDescent** 梯度提升函数的**alpha = 0.0007**，**迭代终止阈值**为**0.000001**，
-**stocGradAscent1** 改善后的随机梯度提升函数**迭代终止阈值**为**0.00001**.
+当迭代 **B** 20次，可以自行加大迭代次数。
+**gradDescent** 梯度上升函数的alpha = 0.0007，迭代终止阈值为 0.000001，
+**stocGradAscent1** 改善后的随机梯度上升函数**迭代终止阈值为 0.00001.
+**stocBatchGradAscent** 基于batch下的随机梯度上升函数的迭代终止阈值为1e-9.
+**newtonRapshon** 牛顿法的迭代终止阈值为1e-9.
 
-结果可见，optimFun的预测效果是最好的，比改善后的随机梯度下降算法还要稍好一些。运行效率也是能接受的。
+结果如下：
 
+> iterFun(x = X, y = y, B = 20)
 $time
-            glm      gradAscent  stocGradAscent stocGradAscent1        optimFun 
-        0.00322         0.00419         0.00484         3.30139         0.01288 
+                glm          gradAscent      stocGradAscent     stocGradAscent1 stocBatchGradAscent            optimFun 
+            0.00365             0.00500             0.00285             1.46545             2.63830             0.02545 
+      newtonRapshon 
+           12.64085 
 
 $mse
-        glm_mse      gradAscent  stocGradAscent stocGradAscent1        optimFun 
-    0.000000000     0.005347463     0.035618086     0.024091739     0.019497642 
+            glm_mse          gradAscent      stocGradAscent     stocGradAscent1 stocBatchGradAscent            optimFun 
+       0.000000e+00        6.285160e-03        3.947734e-02        7.024495e-03        2.076633e-03        1.924393e-02 
+      newtonRapshon 
+       4.424137e-05 
 
 $rate
-            glm      gradAscent  stocGradAscent stocGradAscent1        optimFun 
-      0.5033484       0.5042849       0.5034226       0.5202350       0.5213016 
-
+                glm          gradAscent      stocGradAscent     stocGradAscent1 stocBatchGradAscent            optimFun 
+          0.4995195           0.5033737           0.4976155           0.5024309           0.5051837           0.5004401 
+      newtonRapshon 
+          0.4949855 
 
 
 
